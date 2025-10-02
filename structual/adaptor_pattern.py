@@ -13,7 +13,7 @@ class TxtFormat(FileFormat):
     def read(self):
         print(f"TXT: {self.content}")
 
-class RtfFormat(FileFormat):
+class RtfLibrary():
     def __init__(self, content): 
         self.type = 'rtf'
         
@@ -21,9 +21,16 @@ class RtfFormat(FileFormat):
         content = self.encoded_content
         self.content = content
         
-    def read(self):
+    def get_encoded_data(self):
         print(f"RTF: {self.content}")
-                
+        
+class RtfAdaptor(): 
+    def __init__(self, content):
+        self.decoded = base64.b64decode(content.encode('utf-8')).decode('utf-8')
+        
+    def get_data(self):
+        print(f"RTF(decoded): {self.decoded}")
+        
 class FileViewer(): 
     def read_file(self, textfile: FileFormat):
         textfile.read()
@@ -38,14 +45,11 @@ class FileViewrAdaptor(FileViewer):
             
 if __name__ == '__main__':
     txt = TxtFormat("hello wordl")
-    rtf = RtfFormat("abcdefghijk")
+    rtf = RtfLibrary("abcdefghijk")
     
     fv = FileViewer()
-    fva = FileViewrAdaptor() 
+    rta = RtfAdaptor(rtf.content)
     
-    files = [txt, rtf]
-    viewers = [fv, fva]
-    
-    for file in files:
-        for viewer in viewers:
-            viewer.read_file(file)
+    fv.read_file(txt)
+    rtf.get_encoded_data()
+    rta.get_data()    
