@@ -12,12 +12,12 @@ class VanillaLatte(Coffee):
         print("Vanilla Latte drunk")
         
     def get_cost(self) -> int:
-        return 4000
+        return 4000S
 
 class CoffeeDecorator(Coffee):
     def __init__(self, coffee: Coffee):
         self._coffee = coffee
-    
+        
     def drink(self) -> None:
         self._coffee.drink()
     
