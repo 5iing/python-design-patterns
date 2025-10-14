@@ -31,6 +31,9 @@ class RtfAdaptor():
     def get_data(self):
         print(f"RTF(decoded): {self.decoded}")
         
+    def read_file(self, textfile: FileFormat):
+        textfile.read()
+
 class FileViewer(): 
     def read_file(self, textfile: FileFormat):
         textfile.read()

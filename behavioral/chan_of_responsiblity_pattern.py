@@ -59,7 +59,6 @@ def build_chain() -> Handler:
 if __name__ == "__main__":
     chain = build_chain()
     cases = [
-        PriceRequest(5000, has_coupon=True),
         PriceRequest(5000, is_vip=True),
         PriceRequest(5000, qty=6),
         PriceRequest(5000),

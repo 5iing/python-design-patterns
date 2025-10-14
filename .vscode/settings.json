@@ -1,0 +1,6 @@
+{
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintPath": "/Users/iyeon-u/.local/bin/pylint",
+  "python.analysis.diagnosticMode": "workspace"
+}
