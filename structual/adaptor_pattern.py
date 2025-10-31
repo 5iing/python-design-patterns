@@ -24,7 +24,7 @@ class RtfLibrary():
     def get_encoded_data(self):
         print(f"RTF: {self.content}")
         
-class RtfAdaptor(): 
+class RtfAdaptor(RtfLibrary): 
     def __init__(self, content):
         self.decoded = base64.b64decode(content.encode('utf-8')).decode('utf-8')
         
